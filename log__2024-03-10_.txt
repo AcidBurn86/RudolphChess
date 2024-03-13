@@ -1,0 +1,3 @@
+2024-03-10 15:30:52 - Inicio del script.
+2024-03-10 15:30:52 - Contenido actual de $_SESSION: []
+2024-03-10 15:30:52 - no hay user_id en session.

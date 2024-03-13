@@ -1,0 +1,119 @@
+Error reading input: read /dev/stdin: bad file descriptor
+Error reading input: read /dev/stdin: bad file descriptor
+Error reading input: read /dev/stdin: bad file descriptor
+## Test 1
+info depth 1 score cp 1095 pv g1f3 nodes 29
+info depth 2 score cp 829 pv h5f6 g4f5 nodes 58
+info depth 3 score cp 1189 pv h5f6 g4f5 g1f3 nodes 771
+Time taken: 52.710961ms
+bestScore 9999
+bestmove f2f3
+## Test 2
+info depth 1 score cp 318 pv e2a6 nodes 48
+info depth 2 score cp 83 pv e2a6 b4c3 nodes 176
+info depth 3 score cp 311 pv e2a6 b4c3 d2h6 nodes 2788
+info depth 4 score cp 36 pv e2a6 h3g2 f3g2 e8g8 nodes 7271
+info depth 5 score cp 278 pv e2a6 h3g2 f3g2 b4c3 d2e3 nodes 39182
+Lines depth 1=  48 Now=  8
+info depth 6 score cp -818 pv e2a6 b4c3 e5f7 c3d2 e1d2 e8g8 nodes 71673
+isWhiteTurn
+Time taken: 7.226379372s
+bestScore -132
+bestmove e5f7
+## Test 3
+info depth 1 score cp -104 pv h2h3 nodes 32
+info depth 2 score cp -129 pv d4c6 b7c6 nodes 153
+info depth 3 score cp -162 pv g1g2 d8d4 e4d4 nodes 1416
+info depth 4 score cp -102 pv f2f4 c4d3 g1f2 h7h6 nodes 18805
+info depth 5 score cp -177 pv f2f3 c6c5 d4c2 g8f7 e4c4 nodes 77381
+Lines depth 1=  32 Now=  32
+info depth 6 score cp -351 pv f2f3 c4d3 e4e8 f8e8 e1e8 g8g7 nodes 260347
+isWhiteTurn
+Time taken: 15.0426096s
+bestScore 480
+bestmove h2h3
+## Test 4
+info depth 1 score cp 543 pv d8e8 nodes 33
+info depth 2 score cp -65 pv d8e8 e5e8 nodes 66
+info depth 3 score cp 272 pv d1e1 e8d8 e1e5 nodes 1037
+info depth 4 score cp -126 pv d1d5 a2f2 f1f2 h7h6 nodes 3912
+info depth 5 score cp 118 pv d1d5 e5e7 d8e8 e7e8 f1e2 nodes 29595
+Lines depth 1=  33 Now=  33
+info depth 6 score cp -424 pv d1d7 e5e1 d7d5 e1f1 g1f1 h7h6 nodes 100136
+Lines Now=  33
+info depth 7 score cp 124 pv d1d3 e5e7 d8e8 e7e8 d3e3 h7h6 e3e8 nodes 1261836
+isWhiteTurn
+Time taken: 1m3.818198688s
+bestScore 58
+bestmove d8d2
+## Test 5
+info depth 1 score cp 60 pv d1d8 nodes 57
+info depth 2 score cp -355 pv d1d8 f8d8 nodes 180
+info depth 3 score cp -16 pv d1d8 f8d8 g2c6 nodes 1458
+info depth 4 score cp -565 pv d1d8 c6d8 e6c4 c7c6 nodes 8473
+info depth 5 score cp -278 pv d1d8 c6d8 e6e7 d8f7 e7f8 nodes 28773
+Lines depth 1=  57 Now=  21
+info depth 6 score cp -921 pv e6d7 d8d7 d1d7 h6g7 g2c6 h7g8 nodes 55489
+isWhiteTurn
+Time taken: 4.158188913s
+bestScore 303
+bestmove e6d7
+## Test 6
+info depth 1 score cp -649 pv c8e6 nodes 36
+info depth 2 score cp -584 pv c8e6 e4e6 nodes 116
+info depth 3 score cp -576 pv f8e8 b1d1 c8e6 nodes 1976
+info depth 4 score cp -417 pv c8e6 e4e6 g8h7 f4f5 nodes 11838
+info depth 5 score cp -464 pv f8f7 b2g7 f7g7 e6g7 g8g7 nodes 51525
+Lines depth 1=  36 Now=  7
+info depth 6 score cp -361 pv f8f7 e6g5 f7e7 e4d5 g8f8 f4f5 nodes 368678
+isBlackTurn
+Time taken: 21.425755178s
+bestScore -366
+bestmove f8f7
+## Test 7
+info depth 1 score cp 15 pv c6d7 nodes 41
+info depth 2 score cp -192 pv e1e2 e8e7 nodes 240
+info depth 3 score cp 39 pv e1e2 e8e7 c6d6 nodes 860
+info depth 4 score cp -213 pv e1e2 d6f4 e3c2 h7h6 nodes 5908
+info depth 5 score cp -155 pv e1e2 d6f4 e3c2 f4d2 c6d7 nodes 34648
+Lines depth 1=  41 Now=  5
+info depth 6 score cp -928 pv e1e2 d6f4 c6a4 f4e3 a4d7 e8f8 nodes 56569
+isWhiteTurn
+Time taken: 4.491067755s
+bestScore 905
+bestmove c6a6
+Test #1: Expected: f2f3, Found: [32mf2f3[0m, Correct: true, Nodes: [31m1000[0m, Expected Nodes: 559, Time: 52.710961ms
+Test #2: Expected: e2a6, Found: [31me5f7[0m, Correct: false, Nodes: [36m97949[0m, Expected Nodes: 231816, Time: 7.226379372s
+Test #3: Expected: d4c6, Found: [31mh2h3[0m, Correct: false, Nodes: [31m265984[0m, Expected Nodes: 674, Time: 15.0426096s
+Test #4: Expected: d1d5, Found: [31md8d2[0m, Correct: false, Nodes: [31m1279307[0m, Expected Nodes: 163, Time: 1m3.818198688s
+Test #5: Expected: e6d7, Found: [32me6d7[0m, Correct: true, Nodes: [36m60593[0m, Expected Nodes: 113488, Time: 4.158188913s
+Test #6: Expected: f8e8, Found: [31mf8f7[0m, Correct: false, Nodes: [31m377896[0m, Expected Nodes: 101513, Time: 21.425755178s
+Test #7: Expected: e1e2, Found: [31mc6a6[0m, Correct: false, Nodes: [36m64365[0m, Expected Nodes: 144046, Time: 4.491067755s
+Valores guardados en el archivo '2_aciertos_iteracion_1.txt'
+Iteración: 1
+## Test 1
+info depth 1 score cp 561 pv f2f3 nodes 29
+info depth 2 score cp 703 pv h5f6 g4f5 nodes 59
+info depth 3 score cp 578 pv h5f6 g4f5 e1d2 nodes 804
+Time taken: 20.107592ms
+bestScore 9999
+bestmove f2f3
+## Test 2
+info depth 1 score cp 256 pv e2a6 nodes 48
+info depth 2 score cp 87 pv e2a6 b4c3 nodes 176
+info depth 3 score cp 278 pv e2a6 b4c3 d2e3 nodes 2709
+info depth 4 score cp 27 pv e2a6 b4c3 d2c3 e8g8 nodes 7111
+info depth 5 score cp 242 pv e2a6 h3g2 f3g2 b4c3 d2e3 nodes 35608
+Lines depth 1=  48 Now=  8
+info depth 6 score cp -717 pv e2a6 b4c3 e5f7 c3d2 e1d2 e8g8 nodes 68523
+isWhiteTurn
+Time taken: 3.045574263s
+bestScore -293
+bestmove f3f6
+## Test 3
+info depth 1 score cp -104 pv h2h3 nodes 32
+info depth 2 score cp -77 pv h2h3 g8f7 nodes 135
+info depth 3 score cp -168 pv h2h4 g8f7 e4f4 nodes 1403
+info depth 4 score cp -59 pv f2f4 c4d3 e4e5 d3f1 nodes 21655
+info depth 5 score cp -194 pv d4c6 b7c6 e4c4 g8f7 g1f1 nodes 79691
+Lines depth 1=  32 Now=  32
