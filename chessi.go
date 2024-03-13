@@ -478,14 +478,9 @@ func parseDepth(depthStr string) int8 {
 
 func handleUCINewGame() {
 	positions = sync.Map{}
-	cacheEvalCenterControl = make(map[gameTurnState]int16)
-	cacheValidateCenterControl2 = make(map[gameTurnState]int16)
-	memoizedResults = memoizeMap{cache: make(map[kingPositionKey][]int)}
 	memoizedAttacks = memoizeAttacks{cache: make(map[attackKey]Bitboard)}
 	cacheWhiteRookInOpenRank = make(map[boardState]bool)
 	cacheBlackRookInOpenRank = make(map[boardState]bool)
-	enemyCache = make(map[cacheKey]int)
-	friendlyCache = make(map[cacheKey]int)
 	nodeCount = 0
 	cutedForDepth1 = []*chess.Move{}
 	cutLines = []string{}
@@ -497,14 +492,9 @@ func handleUCINewGame() {
 }
 
 func handlePosition(tokens []string) {
-	cacheEvalCenterControl = make(map[gameTurnState]int16)
-	cacheValidateCenterControl2 = make(map[gameTurnState]int16)
-	memoizedResults = memoizeMap{cache: make(map[kingPositionKey][]int)}
 	memoizedAttacks = memoizeAttacks{cache: make(map[attackKey]Bitboard)}
 	cacheWhiteRookInOpenRank = make(map[boardState]bool)
 	cacheBlackRookInOpenRank = make(map[boardState]bool)
-	enemyCache = make(map[cacheKey]int)
-	friendlyCache = make(map[cacheKey]int)
 	nodeCount = 0
 	cutedForDepth1 = []*chess.Move{}
 	cutLines = []string{}

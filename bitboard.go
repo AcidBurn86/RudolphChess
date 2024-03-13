@@ -152,8 +152,8 @@ const (
 func whiteRookInOpenRank() bool {
 
 	state := boardState{whiteRooks: whiteRooks, allOccupied: allOccupied}
-	if result, found := cacheWhiteRookInOpenRank[state]; found {
-		return result // Retorna el resultado desde la caché si está presente.
+	if _, found := cacheWhiteRookInOpenRank[state]; found {
+		//return result // Retorna el resultado desde la caché si está presente.
 	}
 
 	columnMasks := [8]Bitboard{
@@ -169,15 +169,15 @@ func whiteRookInOpenRank() bool {
 			}
 		}
 	}
-	cacheWhiteRookInOpenRank[state] = false
+	//cacheWhiteRookInOpenRank[state] = false
 	return false
 }
 
 func blackRookInOpenRank() bool {
 
 	state := boardState{blackRooks: blackRooks, allOccupied: allOccupied}
-	if result, found := cacheBlackRookInOpenRank[state]; found {
-		return result // Retorna el resultado desde la caché si está presente.
+	if _, found := cacheBlackRookInOpenRank[state]; found {
+		//return result // Retorna el resultado desde la caché si está presente.
 	}
 	columnMasks := [8]Bitboard{
 		ColumnAMask, ColumnBMask, ColumnCMask, ColumnDMask,
@@ -188,11 +188,11 @@ func blackRookInOpenRank() bool {
 		if blackRooks&columnMask != 0 {
 			// Verificar si la columna está abierta (sin piezas) o semiabierta (solo piezas negras).
 			if (allOccupied & columnMask) == (blackRooks & columnMask) {
-				cacheBlackRookInOpenRank[state] = true
+				//cacheBlackRookInOpenRank[state] = true
 				return true // Hay al menos una torre negra en una columna abierta/semiabierta.
 			}
 		}
 	}
-	cacheBlackRookInOpenRank[state] = false
+	//cacheBlackRookInOpenRank[state] = false
 	return false // No hay torres negras en columnas abiertas/semiabiertas.
 }

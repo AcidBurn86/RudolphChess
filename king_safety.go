@@ -138,15 +138,15 @@ var memoizedAttacks = memoizeAttacks{cache: make(map[attackKey]Bitboard)}
 
 // attackingBishops memoizada.
 func attackingBishops(kingPosition int, color int, bishops Bitboard) Bitboard {
-	key := attackKey{kingPosition: kingPosition, color: color, bishops: bishops}
+	/*key := attackKey{kingPosition: kingPosition, color: color, bishops: bishops}
 
 	memoizedAttacks.Lock()
 	defer memoizedAttacks.Unlock()
 
 	// Verificar si el resultado ya está en la caché.
-	if result, found := memoizedAttacks.cache[key]; found {
-		return result
-	}
+	if _, found := memoizedAttacks.cache[key]; found {
+		//	return result
+	}*/
 
 	var attacks Bitboard
 
@@ -176,22 +176,22 @@ type cacheKey struct {
 }
 
 // Estructuras de caché para cada función
-var (
+/*var (
 	enemyCache    = make(map[cacheKey]int)
 	friendlyCache = make(map[cacheKey]int)
 	cacheMutex    sync.Mutex // Para manejar el acceso concurrente a la caché
-)
+)*/
 
 func enemyPiecesNearKing(kingPosition int, color int) int {
-	key := cacheKey{kingPosition, color}
+	/*key := cacheKey{kingPosition, color}
 
 	// Revisar si el resultado ya está en la caché
 	cacheMutex.Lock()
-	result, found := enemyCache[key]
+	_, found := enemyCache[key]
 	cacheMutex.Unlock()
 	if found {
-		return result
-	}
+		//return result
+	}*/
 
 	var enemyPieces Bitboard
 	if color == 1 {
@@ -211,23 +211,23 @@ func enemyPiecesNearKing(kingPosition int, color int) int {
 		}
 	}
 
-	cacheMutex.Lock()
+	/*cacheMutex.Lock()
 	enemyCache[key] = count
-	cacheMutex.Unlock()
+	cacheMutex.Unlock()*/
 
 	return count
 }
 
 func friendlyPiecesNearKing(kingPosition int, color int) int {
-	key := cacheKey{kingPosition, color}
+	/*key := cacheKey{kingPosition, color}
 
 	// Revisar si el resultado ya está en la caché
 	cacheMutex.Lock()
-	result, found := friendlyCache[key]
+	_, found := friendlyCache[key]
 	cacheMutex.Unlock()
 	if found {
-		return result
-	}
+		//	r*eturn result
+	}*/
 
 	var friendlyPieces Bitboard
 	if color == 0 {
@@ -249,37 +249,38 @@ func friendlyPiecesNearKing(kingPosition int, color int) int {
 
 	//	fmt.Println("Color: ", color, "Count: ", count)
 
-	cacheMutex.Lock()
+	/*cacheMutex.Lock()
 	friendlyCache[key] = count
-	cacheMutex.Unlock()
+	cacheMutex.Unlock()*/
 
 	return count
 }
 
+/*
 type kingPositionKey struct {
 	kingPosition int
 	howFar       int
-}
+}*/
 
 // Actualizar memoizeMap para usar kingPositionKey como clave.
-type memoizeMap struct {
+/*type memoizeMap struct {
 	sync.Mutex
 	cache map[kingPositionKey][]int
-}
+}*/
 
 // Inicializar la estructura con el tipo correcto para la mapa.
-var memoizedResults = memoizeMap{cache: make(map[kingPositionKey][]int)}
+//var memoizedResults = memoizeMap{cache: make(map[kingPositionKey][]int)}
 
 func calculateKingSurroundings(kingPosition int, howFar int) []int {
-	key := kingPositionKey{kingPosition, howFar}
+	/*key := kingPositionKey{kingPosition, howFar}
 
 	memoizedResults.Lock()
 	defer memoizedResults.Unlock()
 
 	// Verificar si el resultado ya está en la caché usando la nueva clave.
-	if result, found := memoizedResults.cache[key]; found {
-		return result
-	}
+	if _, found := memoizedResults.cache[key]; found {
+		//return result
+	}*/
 
 	// Lógica de la función si el resultado no está en la caché.
 	var surroundings []int
@@ -294,7 +295,7 @@ func calculateKingSurroundings(kingPosition int, howFar int) []int {
 	}
 
 	// Almacenar el resultado calculado en la caché antes de retornarlo.
-	memoizedResults.cache[key] = surroundings
+	//memoizedResults.cache[key] = surroundings
 
 	return surroundings
 }

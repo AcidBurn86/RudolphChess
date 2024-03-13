@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
 	"sync"
 
 	"github.com/notnil/chess"
@@ -330,11 +329,11 @@ func EvaluateBoard(board *chess.Board, gameMovility *chess.Game, isWhiteTurn boo
 
 	// get randon number from 0 to 10
 
-	randomNumber := rand.Intn(4)
+	//randomNumber := rand.Intn(4)
 	//fmt.Println("Random Number: ", randomNumber)
 	//hashScores.Store(hashValue, finalScore)
 
-	return finalScore + int16(randomNumber)
+	return finalScore //+ int16(randomNumber)
 }
 
 func checkDoubledPawns(board *chess.Board) int16 {

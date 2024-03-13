@@ -1,28 +1,29 @@
 package main
 
-import "sync"
-
 var centerMask Bitboard = 0x0000001818000000
 
 var extendedCenterMask Bitboard = 0x0000003C3C000000
 
-type gameTurnState struct {
-	isWhiteTurn bool
-	allWhites   Bitboard
-	allBlacks   Bitboard
-}
+/*
+	type gameTurnState struct {
+		isWhiteTurn bool
+		allWhites   Bitboard
+		allBlacks   Bitboard
+	}
 
 // Mapas de caché para almacenar los resultados de las funciones.
 var (
+
 	cacheEvalCenterControl      = make(map[gameTurnState]int16)
 	cacheValidateCenterControl2 = make(map[gameTurnState]int16)
-)
 
+)
+*/
 func evalCenterControl(isWhiteTurn bool) (result int16) {
-	state := gameTurnState{isWhiteTurn: isWhiteTurn, allWhites: allWhites, allBlacks: allBlacks}
+	/*state := gameTurnState{isWhiteTurn: isWhiteTurn, allWhites: allWhites, allBlacks: allBlacks}
 	if result, found := cacheEvalCenterControl[state]; found {
 		return result // Retorna el resultado desde la caché si está presente.
-	}
+	}*/
 	var friendliesBitboard, enemiesBitboard Bitboard
 	var friendlies, enemies int16
 
@@ -38,23 +39,23 @@ func evalCenterControl(isWhiteTurn bool) (result int16) {
 	enemies = countBits(enemiesBitboard)
 	result = friendlies + enemies
 
-	cacheEvalCenterControl[state] = result
+	//cacheEvalCenterControl[state] = result
 
 	return result
 }
 
-var mutex sync.Mutex
+//var mutex sync.Mutex
 
 func validateCenterControl2(isWhiteTurn bool) (result int16) {
-	state := gameTurnState{isWhiteTurn: isWhiteTurn, allWhites: allWhites, allBlacks: allBlacks}
+	/*state := gameTurnState{isWhiteTurn: isWhiteTurn, allWhites: allWhites, allBlacks: allBlacks}
 
 	mutex.Lock()
 	result, found := cacheValidateCenterControl2[state]
 	mutex.Unlock()
 
 	if found {
-		return result // Retorna el resultado desde la caché si está presente.
-	}
+		//return result // Retorna el resultado desde la caché si está presente.
+	}*/
 
 	var friendliesBitboard, enemiesBitboard Bitboard
 	var friendlies, enemies int16
@@ -71,9 +72,9 @@ func validateCenterControl2(isWhiteTurn bool) (result int16) {
 	enemies = countBits(enemiesBitboard)
 	result = friendlies + enemies
 
-	mutex.Lock()
+	/*mutex.Lock()
 	cacheValidateCenterControl2[state] = result
-	mutex.Unlock()
+	mutex.Unlock()*/
 
 	return result
 }
